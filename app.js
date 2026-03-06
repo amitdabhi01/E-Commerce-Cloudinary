@@ -28,13 +28,13 @@ app.use((error, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 async function startServer() {
   try {
     await connectDB();
-    app.listen(PORT, () => {
-      console.log("server running on port", PORT);
+    app.listen(port, () => {
+      console.log("server running on port", port);
     });
   } catch (error) {
     console.log(error.message);
