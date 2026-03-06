@@ -25,4 +25,6 @@ const createProduct = async (req, res, next) => {
   }
 };
 
+const 
+
 export default (createProduct);
