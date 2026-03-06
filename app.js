@@ -1,6 +1,9 @@
 import express from "express";
 import HttpError from "./middleware/HttpError.js";
 import connectDB from "./config/db.js";
+import productRouter from "./routes/productRouter.js";
+
+import dotenv from "dotenv";
 
 dotenv.config({ path: "./.env" });
 
@@ -25,19 +28,19 @@ app.use((error, req, res, next) => {
   });
 });
 
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
+async function startServer() {
   try {
     await connectDB();
-    app.listen(port, () => {
-      console.log("server running on port", port);
+    app.listen(PORT, () => {
+      console.log("server running on port", PORT);
     });
   } catch (error) {
     console.log(error.message);
     process.exit(1);
   }
-};
+}
 
 startServer();
 
